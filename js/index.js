@@ -10,7 +10,7 @@ for ( let i = 0; i < message*message; ++i )
     container.appendChild(square);
 }
 let squareList = document.querySelectorAll(".square");
-squareList.forEach( (item) => 
+squareList.forEach( (item) =>
 {
     item.addEventListener('mouseover', (e) =>
     {
@@ -24,7 +24,7 @@ let btn = document.querySelector(".btn");
 btn.addEventListener('click', (e) => {
     console.log(e.target);
     message = Number(prompt("How many square divs do you want on each side?"));
-    if( message < 1 || message > 100 )
+    if( message < 1 || message > 100 || isNaN(message) )
     {
         while( message < 1 || message > 100){
             message = Number(prompt("Choose a number between 1 and 100 please."));
@@ -40,21 +40,19 @@ btn.addEventListener('click', (e) => {
     {
         const square = document.createElement('div');
         square.classList = "square";
+        container.style.gridTemplateColumns = `repeat(${message},1fr)`;
+        container.style.gridTemplateRows = `repeat(${message}, 1fr)`;
         container.appendChild(square);
     }
     let squareList = document.querySelectorAll(".square");
-    squareList.forEach( (item) => 
+    squareList.forEach( (item) =>
     {
         item.addEventListener('mouseover', (e) =>
         {
             e.target.classList.add("changeColor");
-            e.target.style.width = `${960/squareList.length}px`;
-            e.target.style.height = `${960/squareList.length}px`;
-            console.log(e.target);
         });
     }
     )
     // container.style.width = `${(960/squareList.length)*}`
     currAmount.textContent = message;
 })
-
