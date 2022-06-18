@@ -59,3 +59,14 @@ btn.addEventListener('click', (e) => {
     // container.style.width = `${(960/squareList.length)*}`
     currAmount.textContent = message;
 })
+
+// only works for default and not when you change number of squares
+let eraseBtn = document.querySelector(".erase");
+eraseBtn.addEventListener('click', (e) => {
+  let squareList = document.querySelectorAll(".square");
+  squareList.forEach( (square) => {
+    square.addEventListener('mouseover', (e) => {
+      e.target.classList.add("clear");
+    });
+  })
+})

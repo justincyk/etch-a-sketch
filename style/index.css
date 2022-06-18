@@ -46,3 +46,12 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+
+.erase {
+  margin-bottom: 10px;
+}
+
+.clear {
+  background-color: white;
+}
