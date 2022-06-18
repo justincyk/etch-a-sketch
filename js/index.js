@@ -26,7 +26,7 @@ btn.addEventListener('click', (e) => {
     message = Number(prompt("How many square divs do you want on each side?"));
     if( message < 1 || message > 100 || isNaN(message) )
     {
-        while( message < 1 || message > 100){
+        while( message < 1 || message > 100 || isNaN(message)){
             message = Number(prompt("Choose a number between 1 and 100 please."));
         }
     }
@@ -50,6 +50,9 @@ btn.addEventListener('click', (e) => {
         item.addEventListener('mouseover', (e) =>
         {
             e.target.classList.add("changeColor");
+            const color = Math.floor(Math.random()*16777215).toString(16);
+            console.log(color);
+            e.target.style.backgroundColor = `#${color}`;
         });
     }
     )
